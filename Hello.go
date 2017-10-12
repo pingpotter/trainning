@@ -13,4 +13,10 @@ func main() {
 	fmt.Println("Tangmo is very pretty!")
 	fmt.Println("Petch1234")
 	fmt.Println("Tangmo is very beautiful.")
+
+	printnum()
+}
+
+func printnum() {
+	fmt.Println(1+1)
 }
