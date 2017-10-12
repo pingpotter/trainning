@@ -7,4 +7,5 @@ func main() {
 	fmt.Println("Hello2, 世界")
 	fmt.Println("Hello2, 世界")
 	fmt.Println("Hello3")
+	fmt.Println("Petch")
 }
