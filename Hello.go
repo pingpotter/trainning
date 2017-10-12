@@ -11,4 +11,5 @@ func main() {
 	fmt.Println("P'new is a funny person.")
 	fmt.Println("Petch7")
 	fmt.Println("Tangmo is very pretty!")
+	fmt.Println("Tangmo is very beautiful.")
 }
