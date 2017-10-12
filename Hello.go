@@ -9,4 +9,5 @@ func main() {
 	fmt.Println("Hello3")
 	fmt.Println("Petch777")
 	fmt.Println("P'new")
+	fmt.Println("Petch777")
 }
