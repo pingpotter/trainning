@@ -9,6 +9,6 @@ func main() {
 	fmt.Println("Hello3")
 	fmt.Println("Petch777")
 	fmt.Println("P'new is a funny person.")
-	fmt.Println("Petch777")
+	fmt.Println("Petch7")
 	fmt.Println("Tangmo is very pretty!")
 }
