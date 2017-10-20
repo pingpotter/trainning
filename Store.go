@@ -30,7 +30,7 @@ type Book struct {
 }
 
 func main() {
-	session, err := mgo.Dial("localhost")
+	session, err := mgo.Dial("127.0.0.1:27017")
 	if err != nil {
 		panic(err)
 	}
@@ -124,39 +124,6 @@ func addBook(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		w.Header().Set("Location", r.URL.Path+"/"+book.ISBN)
 		w.WriteHeader(http.StatusCreated)
-	}
-}
-
-func bookByISBN(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
-	return func(w http.ResponseWriter, r *http.Request) {
-		session := s.Copy()
-		defer session.Close()
-
-
-		vars := mux.Vars(r)
-		isbn := vars["isbn"]
-
-		c := session.DB("store").C("books")
-
-		var book Book
-		err := c.Find(bson.M{"isbn": isbn}).One(&book)
-		if err != nil {
-			ErrorWithJSON(w, "Database error", http.StatusInternalServerError)
-			log.Println("Failed find book: ", err)
-			return
-		}
-
-		if book.ISBN == "" {
-			ErrorWithJSON(w, "Book not found", http.StatusNotFound)
-			return
-		}
-
-		respBody, err := json.MarshalIndent(book, "", "  ")
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		ResponseWithJSON(w, respBody, http.StatusOK)
 	}
 }
 
