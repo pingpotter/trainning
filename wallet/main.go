@@ -1,5 +1,6 @@
 package wallet
 
+/*
 import (
 	"fmt"
 	"log"
@@ -23,4 +24,4 @@ func main() {
 	router := NewRouter()
 	log.Fatal(http.ListenAndServe(":6677", router))
 
-}
+}*/
